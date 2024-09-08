@@ -76,3 +76,12 @@ exports.sobre = async function(req, res){
     // renderiza o arquivo na dentro da pasta view
     res.render('sobre', contexto);
 }
+
+exports.ajuda = async function(req, res){
+    contexto = {
+        titulo_pagina: "Ajuda sobre o Aplicativo",
+    }
+
+    // renderiza o arquivo na dentro da pasta view
+    res.render('ajuda', contexto);
+}
