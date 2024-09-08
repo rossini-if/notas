@@ -1,0 +1,117 @@
+<html lang="pt-br">
+  <head>
+    <title>{{titulo_pagina}}</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <h3><i class="bi bi-file-text" style="font-size: 1.7rem; color: #000000e6;"></i> Notas</h3>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/"><i class="bi bi-house"></i> Home</a>
+            <a class="nav-link" href="/sobre"><i class="bi bi-info-square"></i> Sobre</a>
+            <a class="nav-link" href="/nota/cria"><i class="bi bi-envelope-plus"></i> Criar Nota</a>
+            <a class="nav-link" href="/nota/cria_notas"><i class="bi bi-file-plus"></i> Criar Notas de Teste</a>
+            <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvas"><i class="bi bi-funnel"></i> Filtro</a>
+          </div>
+
+          <form class="d-flex m-auto" role="search" action="/" method="post">
+            <div class="input-group">
+                {{#if pesquisa}}
+                  <input type="search" class="form-control" placeholder="Pesquise" size="30" name="pesquisa" value="{{pesquisa}}">
+                  <button class="btn btn-outline-secondary" type="submit" name="btn_cancela_pesquisa"><i class="bi bi-x-circle"></i></button>
+                {{else}}
+                  <input type="search" class="form-control" placeholder="Pesquise" size="30" name="pesquisa">
+                  <button class="btn btn-outline-secondary" type="submit" name="btn_pesquisar"><i class="bi bi-search"></i></button>
+                {{/if}}
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      {{{body}}}
+    </div>
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtro de Notas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div style="padding: 20px;">
+          <form action="/" method="post">
+            <fieldset>
+              <legend>Estado da Nota</legend>
+              <div class="form-check">
+                
+                <input class="form-check-input" type="checkbox" 
+                    name="lida" id="lica" {{#if filtros.lida}}checked{{/if}}>
+                <label class="form-check-label" for="lida">Lida</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" 
+                  name="naolida" id="naolida" {{#if filtros.nao_lida}}checked{{/if}}>
+                <label class="form-check-label" for="naolida">Não Lida</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Importância da Nota</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" 
+                  name="importancia1" id="importancia1" {{#if filtros.importancia1}}checked{{/if}}>
+                <label class="form-check-label" for="importancia1">1</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" 
+                  name="importancia2" id="importancia2" {{#if filtros.importancia2}}checked{{/if}}>
+                <label class="form-check-label" for="importancia2">2</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" 
+                  name="importancia3" id="importancia3" {{#if filtros.importancia3}}checked{{/if}}>
+                <label class="form-check-label" for="importancia3">3</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" 
+                  name="importancia4" id="importancia4" {{#if filtros.importancia4}}checked{{/if}}>
+                <label class="form-check-label" for="importancia4">4</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" 
+                  name="importancia5" id="importancia5" {{#if filtros.importancia5}}checked{{/if}}>
+                <label class="form-check-label" for="importancia5">5</label>
+              </div>
+            </fieldset>
+            <button class="btn btn-success" type="submit" name="btn_filtro">Filtar</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/javascripts/bootstrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

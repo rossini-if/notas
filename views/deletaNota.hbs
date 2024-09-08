@@ -1,0 +1,5 @@
+<h2 class="titulo">Deseja realmente excluir a nota "{{titulo}}"?</h2>
+<form action="/nota/deleta/{{chave}}" method="post">
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="/nota/consulta/{{chave}}"><button type="button" class="btn btn-secondary">Cancelar</button></a>
+</form>

@@ -1,0 +1,16 @@
+table {
+  margin-top: 80px;
+}
+
+a.limpo{
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: #cfe2ff;
+  margin-bottom: 50px;
+}
+
+.titulo{
+  margin-bottom: 30px;
+}
